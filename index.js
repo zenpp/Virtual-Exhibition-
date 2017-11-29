@@ -1,49 +1,29 @@
 AFRAME.registerComponent('solar-listener', {
   
     init: function () {
-      var data = this.data;
-      var el = this.el;
-      var event = this.event
-
-      el.addEventListener('click', function (evt) {
-        var el = document.querySelector("#solar_child");
-        //getValue();
-        document.querySelector("#solar_ec_graph").setAttribute('animation__move', 'to', '20');
-        document.querySelector("#solar_ec_text").setAttribute("value",5.5)
-        document.querySelector("#solar_v_graph").setAttribute("to",180);
-        document.querySelector("#solar_v_text").setAttribute("value",220)
-        document.querySelector("#solar_i_graph").setAttribute("to",180);
-        document.querySelector("#solar_i_text").setAttribute("value",8.8)
-        document.querySelector("#solar_t_graph").setAttribute("to",180);
-        document.querySelector("#solar_t_text").setAttribute("value",35)
-        document.querySelector("#solar_bat_graph").setAttribute("to",20);
-        document.querySelector("#solar_bat_text").setAttribute("value",78+'%')
-        //console.log(document.querySelector("#solar_ec_graph").getAttribute("to"));
-        el.emit(event);
-        el.setAttribute("visible",true);
-      });
       
-      el.addEventListener('mouseleave', function (evt) {
-          var el = document.querySelector("#solar_child");
-          el.setAttribute("visible",false);
-      });
+    //   var solar = document.querySelector("#solar");
+    //   var el = document.querySelector("#solar_child");
+    //   var count = 0;
 
-      function getValue()
-      {
-          var theUrl = "http://csrs.ku.ac.th/devices/tm?ID=windpower0000&begin=2017-11-28T22:00:00Z&end=2017-11-28T22:01:00Z";
-          var xmlHttp = new XMLHttpRequest();
-          xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
-          xmlHttp.send( null );
-          var jsonResponse = JSON.parse(xmlHttp.responseText);
-          if(jsonResponse == null){
-              return null;
-          }
-          //return jsonResponse[0]["gen_bat_avg"];
-      }
+    //   solar.addEventListener('click', function (evt) {
+    //     // setTimeout(function () {
+    //         el.setAttribute("visible",true);
+            
+    //     // }, 2000);
+    //   });
+      
+    //   solar.addEventListener('mouseleave', function(evt) {
+    //     // setTimeout(function () {
+    //         el.setAttribute("visible",false);
+            
+    //     // }, 3000);
+          
+    //   });
+       
     },
-  
-   
 });
+
 AFRAME.registerComponent('bicycle-listener', {
     
     init: function () {
@@ -56,62 +36,49 @@ AFRAME.registerComponent('bicycle-listener', {
         var bstand = document.querySelector("#bicycle_bstand");
         var bemb = document.querySelector("#bicycle_em_board");
 
-        el.addEventListener('click', function (evt) {
+        el.addEventListener('mouseenter', function (evt) {
             onHover = true;
             bicy.setAttribute("visible",true);
             bsit.setAttribute("visible",true);
             bstand.setAttribute("visible",true);
             
         });
-        bstand.addEventListener('click',function(evt) {
-            // bemb.setAttribute("visible",false);
-            document.querySelector("#bicycle_ec_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_ec_text").setAttribute("value",40)
-            document.querySelector("#bicycle_v_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_v_text").setAttribute("value",34)
-            document.querySelector("#bicycle_i_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_i_text").setAttribute("value",34)
-            document.querySelector("#bicycle_t_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_t_text").setAttribute("value",34)
-            document.querySelector("#bicycle_bat_graph").setAttribute("to",60);
-            document.querySelector("#bicycle_bat_text").setAttribute("value",34+'%')
+        bstand.addEventListener('mouseenter',function(evt) {
+            document.querySelector("#bicycle_ec_text").setAttribute("value",12)
+            document.querySelector("#bicycle_v_text").setAttribute("value",220)
+            document.querySelector("#bicycle_i_text").setAttribute("value",8.9)
+            document.querySelector("#bicycle_t_text").setAttribute("value",31)
+            document.querySelector("#bicycle_bat_text").setAttribute("value",79+'%')
             bemb.setAttribute("visible",true);
         });
-        bicy.addEventListener('click',function(evt) {
-            // bemb.setAttribute("visible",false);
-            document.querySelector("#bicycle_ec_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_ec_text").setAttribute("value",39)
-            document.querySelector("#bicycle_v_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_v_text").setAttribute("value",34)
-            document.querySelector("#bicycle_i_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_i_text").setAttribute("value",34)
-            document.querySelector("#bicycle_t_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_t_text").setAttribute("value",34)
-            document.querySelector("#bicycle_bat_graph").setAttribute("to",60);
-            document.querySelector("#bicycle_bat_text").setAttribute("value",37+'%')
+        bicy.addEventListener('mouseenter',function(evt) {
+            document.querySelector("#bicycle_ec_text").setAttribute("value",11)
+            document.querySelector("#bicycle_v_text").setAttribute("value",220)
+            document.querySelector("#bicycle_i_text").setAttribute("value",8.6)
+            document.querySelector("#bicycle_t_text").setAttribute("value",36)
+            document.querySelector("#bicycle_bat_text").setAttribute("value",77+'%')
             bemb.setAttribute("visible",true);
         });
-        bsit.addEventListener('click',function(evt) {
-            // bemb.setAttribute("visible",false);
-            document.querySelector("#bicycle_ec_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_ec_text").setAttribute("value",34)
-            document.querySelector("#bicycle_v_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_v_text").setAttribute("value",34)
-            document.querySelector("#bicycle_i_graph").setAttribute("to",180);
-            document.querySelector("#bicycle_i_text").setAttribute("value",34)
-            document.querySelector("#bicycle_t_graph").setAttribute("to",180);
+        bsit.addEventListener('mouseenter',function(evt) {
+            document.querySelector("#bicycle_ec_text").setAttribute("value",14)
+            document.querySelector("#bicycle_v_text").setAttribute("value",220)
+            document.querySelector("#bicycle_i_text").setAttribute("value",9.3)
             document.querySelector("#bicycle_t_text").setAttribute("value",34)
-            document.querySelector("#bicycle_bat_graph").setAttribute("to",60);
-            document.querySelector("#bicycle_bat_text").setAttribute("value",40+'%')
+            document.querySelector("#bicycle_bat_text").setAttribute("value",81+'%')
             bemb.setAttribute("visible",true);
         });
-        el.addEventListener('mouseleave', function (evt) {
-            bicy.setAttribute("visible",false);
-            bsit.setAttribute("visible",false);
-            bstand.setAttribute("visible",false);
-            bemb.setAttribute("visible",false)
-          
-        });
+        // el.addEventListener('mouseleave', function (evt) {
+        //     el.addEventListener('mouseleave', function() {
+        //         setTimeout(function() {
+        //             bicy.setAttribute("visible",false);
+        //             bsit.setAttribute("visible",false);
+        //             bstand.setAttribute("visible",false);
+        //             bemb.setAttribute("visible",false);
+        //         }, 6000);
+                
+        //     });
+            
+        // });
       },
     
      
@@ -122,27 +89,16 @@ AFRAME.registerComponent('stove-listener', {
     
       init: function () {
         var data = this.data;
-        var el = this.el;
+        var stove = document.querySelector("#stove");
+        var el = document.querySelector("#stove_child");
 
-        el.addEventListener('click', function (evt) {
-          var el = document.querySelector("#stove_child");
-          document.querySelector("#solar_ec_graph").setAttribute("to",180);
-          document.querySelector("#solar_ec_text").setAttribute("value",34)
-          document.querySelector("#solar_v_graph").setAttribute("to",180);
-          document.querySelector("#solar_v_text").setAttribute("value",34)
-          document.querySelector("#solar_i_graph").setAttribute("to",180);
-          document.querySelector("#solar_i_text").setAttribute("value",34)
-          document.querySelector("#solar_t_graph").setAttribute("to",180);
-          document.querySelector("#solar_t_text").setAttribute("value",34)
-          document.querySelector("#solar_bat_graph").setAttribute("to",60);
-          document.querySelector("#solar_bat_text").setAttribute("value",34)
+        stove.addEventListener('mouseenter', function (evt) {
           el.setAttribute("visible",true);
         });
-        el.addEventListener('mouseleave', function (evt) {
-            var el = document.querySelector("#stove_child");
-            
+        stove.addEventListener('mouseleave', function (evt) {
             el.setAttribute("visible",false);
         });
+        
     },
      
   });
