@@ -1,0 +1,101 @@
+# OBJ Material Export by Luxion KeyShot
+
+newmtl 1
+Kd 0.823529 0.760784 0.721569
+Ks 0 0 0
+
+newmtl Steel Rougher #1
+Kd 0 0 0
+Ks 0.619608 0.592157 0.572549
+
+newmtl Paint Gloss White
+Kd 1 1 1
+Ks 0 0 0
+
+newmtl Color_5
+Kd 0.666667 0.666667 0.666667
+Ks 0 0 0
+
+newmtl Hard Rough Plastic Black #1
+Kd 0.0117647 0.0117647 0.0117647
+Ks 0.992157 0.992157 0.992157
+
+newmtl Color_004
+Kd 0.556863 0.556863 0.556863
+Ks 0 0 0
+
+newmtl Paint Gloss Orange #3
+Kd 0.79945 0.32781 0.0339682
+Ks 0 0 0
+
+newmtl Color_
+Kd 0.447059 0.447059 0.447059
+Ks 0 0 0
+
+newmtl [Color_009]1
+Kd 0 0 0
+Ks 0 0 0
+
+newmtl Paint Gloss Orange #4
+Kd 0.79945 0.32781 0.0339682
+Ks 0 0 0
+
+newmtl Color_D02
+Kd 1 0.8 0.196078
+Ks 0 0 0
+
+newmtl Paint Gloss Black
+Kd 0.027451 0.027451 0.027451
+Ks 0 0 0
+
+newmtl [Metal_Corrogated_Shiny]2
+Kd 0.756863 0.756863 0.756863
+Ks 0 0 0
+
+newmtl [Metal_Aluminum_Anodized]4
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl [Metal_Seamed]1
+Kd 0.462745 0.466667 0.45098
+Ks 0 0 0
+
+newmtl [Metal_Rusted]1
+Kd 0.258824 0.160784 0.12549
+Ks 0 0 0
+
+newmtl Paint Gloss Orange #1
+Kd 0.79945 0.32781 0.0339682
+Ks 0 0 0
+
+newmtl Hard Rough Plastic Black #2
+Kd 0.0117647 0.0117647 0.0117647
+Ks 0.992157 0.992157 0.992157
+
+newmtl Fblack
+Kd 0 0 0
+Ks 0 0 0
+
+newmtl Paint Gloss White #1
+Kd 1 1 1
+Ks 0 0 0
+
+newmtl [Color_007]1
+Kd 0.227451 0.227451 0.227451
+Ks 0 0 0
+
+newmtl Color_A16
+Kd 0.4 0 0
+Ks 0 0 0
+
+newmtl Paint Gloss Orange
+Kd 0.79945 0.32781 0.0339682
+Ks 0 0 0
+
+newmtl Color_A11
+Kd 0.6 0 0
+Ks 0 0 0
+
+newmtl Paint Gloss Orange #2
+Kd 0.79945 0.32781 0.0339682
+Ks 0 0 0

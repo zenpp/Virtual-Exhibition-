@@ -1,0 +1,97 @@
+# OBJ Material Export by Luxion KeyShot
+
+newmtl [Color_000]1
+Kd 1 1 1
+Ks 0 0 0
+
+newmtl [Color_000]1
+Kd 1 1 1
+Ks 0 0 0
+
+newmtl [Color_C02]1
+Kd 0.94902 0.4 0.227451
+Ks 0 0 0
+
+newmtl Pavers Modular Brick
+Kd 0.682353 0.564706 0.498039
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl 0135_DarkGray
+Kd 0.317647 0.317647 0.317647
+Ks 0 0 0
+
+newmtl Default 150:150:150
+Kd 0.588235 0.588235 0.588235
+Ks 0 0 0
+
+newmtl Translucent_Glass_Blue
+Kd 0.392157 0.584314 0.929412
+Ks 0 0 0
+
+newmtl Color_007
+Kd 0.227451 0.227451 0.227451
+Ks 0 0 0
+
+newmtl Color_D01
+Kd 1 0.74902 0
+Ks 0 0 0
+
+newmtl Color_008
+Kd 0.113725 0.113725 0.113725
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Default 150:150:150
+Kd 0.588235 0.588235 0.588235
+Ks 0 0 0
+
+newmtl Color_D04
+Kd 1 0.898039 0.6
+Ks 0 0 0
+
+newmtl Color_D04
+Kd 1 0.898039 0.6
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Color_D04
+Kd 1 0.898039 0.6
+Ks 0 0 0
+
+newmtl Metal_Aluminum_Anodized
+Kd 0.792157 0.819608 0.858824
+Ks 0 0 0
+
+newmtl Default 150:150:150
+Kd 0.588235 0.588235 0.588235
+Ks 0 0 0
+
+newmtl Color_D01
+Kd 1 0.74902 0
+Ks 0 0 0

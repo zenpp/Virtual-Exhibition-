@@ -1,0 +1,278 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        
+        <title>VR Illustration</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="https://cdn.rawgit.com/zcanter/aframe-gradient-sky/master/dist/gradientsky.min.js"></script> 
+        <script src="https://unpkg.com/aframe-animation-component/dist/aframe-animation-component.min.js"></script>
+        <script src="dist/aframe-no-click-look-controls.min.js"></script>
+        <script src="index.js"></script>
+      
+      </head>
+      <body style="" class="a-body "> 
+          <a-scene class="fullscreen" inspector="" keyboard-shortcuts="" screenshot="" vr-mode-ui=""><canvas class="a-canvas" data-aframe-canvas="true" width="600" height="300"></canvas>
+              <a-assets>
+                  <a-asset-item id="solar-obj" src="assets/01-solar/solar.obj"></a-asset-item>
+                  <a-asset-item id="solar-mtl" src="assets/01-solar/solar.mtl"></a-asset-item>
+                  <a-asset-item id="bicycle-obj" src="assets/02-bicycle/b2.obj"></a-asset-item>
+                  <a-asset-item id="bicycle-mtl" src="assets/02-bicycle/b2.mtl"></a-asset-item>
+                  <a-asset-item id="stove-obj" src="assets/03-stove/stove.obj"></a-asset-item>
+                  <a-asset-item id="stove-mtl" src="assets/03-stove/stove.mtl"></a-asset-item> 
+                  <img id="ui_em" src="assets/UI render/UI_energy_measurement.png">
+                  <img id="bicy" src="assets/UI render/bicycle/bicy.png">
+                  <img id="bsit" src="assets/UI render/bicycle/bsit.png">
+                  <img id="bstand" src="assets/UI render/bicycle/bstand.png">
+                  <img id="sky" src="assets/Sky1.jpg">
+              </a-assets>
+              
+              <a-gradient-sky material="topColor:17 122 240;bottomColor:79 153 69" geometry=""></a-gradient-sky>        
+              <a-entity position="-65 22 20" rotation="0 -45 0">
+                  <a-text value="Energy Measurement" width="250" height="100" color="#0000" text=""></a-text>
+              </a-entity>
+              
+              
+              <a-entity id="solar" solar-listener="">
+                  <a-entity obj-model="obj:assets/01-solar/solar.obj;mtl:assets/01-solar/solar.mtl"></a-entity>
+                  <a-entity id="solar_child" visible="false" position="-70 135 0" rotation="15 15 0">
+      
+                      <!-- energy measurement board -->
+                      <a-image src="#ui_em" width="100" height="62.5" material="" geometry=""></a-image>
+      
+                      <!-- electric consumption -->
+                      <a-entity position="-32 6.5 3">
+                          <!-- <a-entity cursor="fuse: true; fuseTimeout: 2000 "
+                              geometry="primitive: ring; radius-inner:6; radius-outer:7; theta-start:270; theta-length:20"
+                              material="color: yellow;">
+                              <a-animation id="solar_ec_graph"  begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength"
+                                   fill="backwards" to="180" >
+                              </a-animation>
+                          </a-entity> -->
+                          <a-ring id="solar_ec_graph" radius-inner="6" radius-outer="7" theta-start="90" color="yellow" animation__move="startEvents:move;property:theta-length;dur:2000;to:20" material="" geometry="" to="180">
+                          </a-ring>
+                      </a-entity>
+                      <a-entity position="-38 -5 3">
+                          <a-text id="solar_ec_text" value="34" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                      
+                      <!-- voltage -->
+                      <a-entity position="-10 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.19138962754836156;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:red" raycaster="">
+                              <a-animation id="solar_v_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-17 -5 3">
+                              <a-text id="solar_v_text" value="34" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- electric current -->
+                      <a-entity position="12 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:180;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="solar_i_graph" ecbegin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="7 -5 3">
+                              <a-text id="solar_i_text" value="34" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- temperature -->
+                      <a-entity position="34 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.13516760383218113;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="solar_t_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="29 -5 3">
+                              <a-text id="solar_t_text" value="34" width="100" height="100" text=""></a-text>
+                      </a-entity>
+                      
+                      <!-- battery -->
+                      <a-entity position="0 -24 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="width:0.02529196527150989;depth:0;height:4" material="color:blue" raycaster="">
+                              <a-animation id="solar_bat_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.width" fill="forwards" from="0" to="60">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-3 -15 3">
+                          <a-text id="solar_bat_text" value="34" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                  </a-entity> 
+              </a-entity>
+      
+              <!-- /////// BICYCLE /////// -->
+              <a-entity id="bicycle" bicycle-listener="" position="20 4.5 0">
+                  <a-entity scale="25 25 20" obj-model="obj:assets/02-bicycle/b2.obj;mtl:assets/02-bicycle/b2.mtl"></a-entity>
+                  <!-- <a-entity rotation="0 180 0" scale="25 25 25" obj-model="obj: #base-obj; mtl: #base-mtl"></a-entity> -->
+                  <a-entity rotation="90 180 0" position="0 10 0">
+                      <a-circle color="#c5a390" radius="68" material="" geometry="">
+                      </a-circle>
+                  </a-entity>
+      
+                  <a-entity id="bicycle_bstand" bstand-listener="" visible="false" position="-40 65 10" rotation="0 -30 0">
+                      <a-image src="#bstand" width="20" height="20" material="" geometry=""></a-image>
+                  </a-entity>
+      
+                  <a-entity id="bicycle_bicy" bicy-listener="" visible="false" position="-5 75 10" rotation="0 -30 0">
+                      <a-image src="#bicy" width="20" height="20" material="" geometry=""></a-image>
+                  </a-entity>
+                  <a-entity id="bicycle_bsit" bsit-listener="" visible="false" position="45 65 10" rotation="0 -30 0">
+                       <a-image src="#bsit" width="20" height="20" material="" geometry=""></a-image>
+                  </a-entity>
+      
+                  <a-entity id="bicycle_em_board" visible="false" position="10 130 15" rotation="25 -20 0">
+      
+                      <!-- energy measurement board -->
+                      <a-image src="#ui_em" width="100" height="62.5" material="" geometry=""></a-image>
+      
+                      <!-- electric consumption -->
+                      <a-entity position="-32 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.07178602297924971;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:yellow" raycaster="">
+                              <a-animation id="bicycle_ec_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="220">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-40 -5 3">
+                          <a-text id="bicycle_ec_text" value="5.5" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                      
+                      <!-- voltage -->
+                      <a-entity position="-10 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.09499702394880319;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:red" raycaster="">
+                              <a-animation id="bicycle_v_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="300">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-19 -5 3">
+                          <a-text id="bicycle_v_text" value="220" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- electric current -->
+                      <a-entity position="12 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.0543436466110437;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="bicycle_i_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="5 -5 3">
+                          <a-text id="bicycle_i_text" value="8.8" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- temperature -->
+                      <a-entity position="34 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.09761540697882112;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="bicycle_t_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="340">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="27 -5 3">
+                          <a-text id="bicycle_t_text" value="35" width="100" height="100" text=""></a-text>
+                      </a-entity>
+                      
+                      <!-- battery -->
+                      <!-- battery -->
+                      <a-entity position="0 -22 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="width:0.020945805187659608;depth:0;height:4" material="color:blue" raycaster="">
+                              <a-animation id="bicycle_bat_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.width" fill="forwards" from="0" to="75">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-3 -15 3">
+                          <a-text id="bicycle_bat_text" value="78%" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                  </a-entity> 
+                  
+              </a-entity>
+      
+      
+              <a-entity id="stove" stove-listener="">
+                  <a-entity obj-model="obj:assets/03-stove/stove.obj;mtl:assets/03-stove/stove.mtl">
+                  </a-entity>
+                  <a-entity id="stove_child" position="80 135 90" rotation="10 -95 0">
+                  
+      
+                      <!-- energy measurement board -->
+                      <a-image src="#ui_em" width="100" height="62.5" position="6.733 -17.969 30.592" material="" geometry=""></a-image>
+      
+                      <!-- electric consumption -->
+                      <a-entity position="-32 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:220;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:yellow" raycaster="">
+                              <a-animation id="stove_ec_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="220">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-40 -5 3">
+                          <a-text id="stove_ec_text" value="5.5" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                      
+                      <!-- voltage -->
+                      <a-entity position="-10 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:300;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:red" raycaster="">
+                              <a-animation id="stove_v_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="300">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-19 -5 3">
+                          <a-text id="stove_v_text" value="220" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- electric current -->
+                      <a-entity position="12 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:180;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="stove_i_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="5 -5 3">
+                          <a-text id="stove_i_text" value="8.8" width="100" height="100" text=""></a-text>
+                      </a-entity>
+      
+                      <!-- temperature -->
+                      <a-entity position="34 6.5 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:340;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="">
+                              <a-animation id="stove_t_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="340">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="27 -5 3">
+                          <a-text id="stove_t_text" value="35" width="100" height="100" text=""></a-text>
+                      </a-entity>
+                      
+                      <!-- battery -->
+                      <a-entity position="0 -24 3">
+                          <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="width:75;depth:0;height:4" material="color:blue" raycaster="">
+                              <a-animation id="stove_bat_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.width" fill="forwards" from="0" to="75">
+                              </a-animation>
+                          </a-entity>
+                      </a-entity>
+                      <a-entity position="-3 -15 3">
+                          <a-text id="stove_bat_text" value="78%" width="100" height="100" text=""></a-text>
+                      </a-entity> 
+                  
+                  </a-entity>      
+              </a-entity>
+                      
+      
+              <!-- camera and cursor -->
+              <a-entity position="-50 50 100" rotation="0 -30 0">
+                      <a-entity camera="userHeight:1.6" look-controls="" position="0 1.6 0" rotation="-1.3750987083139647 -66.9214704712802 0" data-aframe-inspector-original-camera="">
+                          <a-cursor id="cursor" cursor="fuse:true;fuseTimeout:500" position="0 0 -1" geometry="radiusOuter:0.03;radiusInner:0.02" material="color:blue" raycaster="">
+                          </a-cursor>
+                      </a-entity>
+                      
+                  
+              </a-entity>
+              
+          </a-scene>
+          
+      
+      
+      
+      
+      
+      
+      
+      </body>
+</html>
