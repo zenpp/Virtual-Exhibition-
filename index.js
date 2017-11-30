@@ -2,25 +2,21 @@ AFRAME.registerComponent('solar-listener', {
   
     init: function () {
       
-    //   var solar = document.querySelector("#solar");
-    //   var el = document.querySelector("#solar_child");
-    //   var count = 0;
+      var solar = document.querySelector("#solar");
+      var el = document.querySelector("#solar_child");
 
-    //   solar.addEventListener('click', function (evt) {
-    //     // setTimeout(function () {
-    //         el.setAttribute("visible",true);
-            
-    //     // }, 2000);
-    //   });
+      solar.addEventListener('mouseenter', function (evt) {
+            el.setAttribute("visible",true);
+      });
       
-    //   solar.addEventListener('mouseleave', function(evt) {
-    //     // setTimeout(function () {
-    //         el.setAttribute("visible",false);
-            
-    //     // }, 3000);
+      solar.addEventListener('mouseleave', function(evt) {
+            el.setAttribute("visible",false);
           
-    //   });
+      });
        
+    },
+    update: function (){
+
     },
 });
 
@@ -67,18 +63,18 @@ AFRAME.registerComponent('bicycle-listener', {
             document.querySelector("#bicycle_bat_text").setAttribute("value",81+'%')
             bemb.setAttribute("visible",true);
         });
-        // el.addEventListener('mouseleave', function (evt) {
-        //     el.addEventListener('mouseleave', function() {
-        //         setTimeout(function() {
-        //             bicy.setAttribute("visible",false);
-        //             bsit.setAttribute("visible",false);
-        //             bstand.setAttribute("visible",false);
-        //             bemb.setAttribute("visible",false);
-        //         }, 6000);
+        el.addEventListener('mouseleave', function (evt) {
+            el.addEventListener('mouseleave', function() {
+                setTimeout(function() {
+                    bicy.setAttribute("visible",false);
+                    bsit.setAttribute("visible",false);
+                    bstand.setAttribute("visible",false);
+                    bemb.setAttribute("visible",false);
+                }, 6000);
                 
-        //     });
+            });
             
-        // });
+        });
       },
     
      

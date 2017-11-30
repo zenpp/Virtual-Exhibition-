@@ -37,12 +37,12 @@
             ///SOLAR//
             ////////// -->
           <a-entity scale="0.05 0.05 0.05" id="solar" solar-listener="" position="2.785 5.993 2.48">
-              <a-entity obj-model="mtl:assets/01-solar/solar.mtl;obj:assets/01-solar/solar.obj" position="-101.278 0 -48.825"></a-entity>
-              <a-entity id="solar_child" visible="false">
+              <a-entity obj-model="mtl:assets/01-solar/solar.mtl;obj:assets/01-solar/solar.obj" position="-84.448 0 -112.951" rotation="0 60 0"></a-entity>
+              <a-entity id="solar_child" position="-27.858 1.293 -61.856">
                     <a-image src="#ui_em" width="100" height="62.5" position="-166.583 39.901 -99.905" rotation="0 60 0" material="opacity:0.8" geometry=""></a-image>
                         <!-- electric consumption -->
                <a-entity position="-32 6.5 3">
-                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.24352182287999638;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:270" material="color:yellow" raycaster="" position="-149.799 41.816 -74.17" rotation="0 60 0">
+                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:180;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:270" material="color:yellow" raycaster="" position="-149.799 41.816 -74.17" rotation="0 60 0">
                     <a-animation id="solar_ec_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="backwards" to="180">
                     </a-animation>
                 </a-entity>
@@ -54,7 +54,7 @@
             
             <!-- voltage -->
             <a-entity position="-10 6.5 3">
-                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:0.2286429816600012;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:red" raycaster="" position="-160.554 41.699 -93.828" rotation="0 60 0">
+                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:180;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:red" raycaster="" position="-160.554 41.699 -93.828" rotation="0 60 0">
                     <a-animation id="solar_v_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
                     </a-animation>
                 </a-entity>
@@ -76,7 +76,7 @@
 
             <!-- temperature -->
             <a-entity position="34 6.5 3">
-                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="primitive:ring;radiusInner:6;radiusOuter:7;thetaLength:180;thetaStart:90" material="color:green" raycaster="" position="-182.25 41.507 -133.697" rotation="0 60 0">
+                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:180;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="" position="-182.25 41.507 -133.697" rotation="0 60 0">
                     <a-animation id="solar_t_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="180">
                     </a-animation>
                 </a-entity>
@@ -118,17 +118,17 @@
                  <a-image src="#bsit" width="20" height="20" position="-1.243 0.745 -5.402" rotation="0 -30 0" material="" geometry="width:1.2;height:1.2"></a-image>
               </a-entity>
 
-              <a-entity id="bicycle_em_board" visible="false">
+              <a-entity id="bicycle_em_board">
                 <a-image src="#ui_em" width="100" height="62.5" position="-1.963 1.574 -7.473" rotation="0 -30 0" scale="0.05 0.05 0.05" material="opacity:0.8" geometry=""></a-image>
                 <!-- electric consumption -->
                <a-entity position="-32 6.5 3">
-                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="primitive:ring;radiusInner:6;radiusOuter:7;thetaLength:220;thetaStart:90" material="color:yellow" raycaster="" position="28.609 -4.517 -11.259" rotation="0 -30 0" scale="0.05 0.05 0.05">
+                <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:220;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:yellow" raycaster="" position="28.609 -4.517 -11.259" rotation="0 -30 0" scale="0.05 0.05 0.05">
                     <a-animation id="bicycle_ec_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="220">
                     </a-animation>
                 </a-entity>
                 </a-entity>
                 <a-entity position="-40 -5 3">
-                    <a-text id="bicycle_ec_text" value="5.5" width="100" height="100" text="" position="36.302 6.363 -11.461" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
+                    <a-text id="bicycle_ec_text" value="14" width="100" height="100" text="" position="36.302 6.363 -11.461" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
                 </a-entity> 
             
                 <!-- voltage -->
@@ -150,18 +150,18 @@
                     </a-entity>
                 </a-entity>
                 <a-entity position="5 -5 3">
-                    <a-text id="bicycle_i_text" value="8.8" width="100" height="100" text="" position="-6.696 6.385 -10.262" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
+                    <a-text id="bicycle_i_text" value="9.3" width="100" height="100" text="" position="-6.696 6.385 -10.262" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
                 </a-entity>
 
                 <!-- temperature -->
                 <a-entity position="34 6.5 3">
-                    <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="primitive:ring;radiusInner:6;radiusOuter:7;thetaLength:340;thetaStart:90" material="color:green" raycaster="" position="-34.469 -4.547 -9.581" rotation="0 -30 0" scale="0.05 0.05 0.05">
+                    <a-entity cursor="fuse:true;fuseTimeout:2000" geometry="thetaLength:340;primitive:ring;radiusInner:6;radiusOuter:7;thetaStart:90" material="color:green" raycaster="" position="-34.469 -4.547 -9.581" rotation="0 -30 0" scale="0.05 0.05 0.05">
                         <a-animation id="bicycle_t_graph" begin="cursor-fusing" easing="ease-in" attribute="geometry.thetaLength" fill="forwards" from="0" to="340">
                         </a-animation>
                     </a-entity>
                 </a-entity>
                 <a-entity position="27 -5 3">
-                    <a-text id="bicycle_t_text" value="35" width="100" height="100" text="" position="-27.729 6.421 -9.654" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
+                    <a-text id="bicycle_t_text" value="34" width="100" height="100" text="" position="-27.729 6.421 -9.654" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
                 </a-entity>
             
                 <!-- battery -->
@@ -172,7 +172,7 @@
                     </a-entity>
                 </a-entity>
                 <a-entity position="-3 -15 3">
-                    <a-text id="bicycle_bat_text" value="78%" width="100" height="100" text="" position="0.846 15.565 -10.505" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
+                    <a-text id="bicycle_bat_text" value="81%" width="100" height="100" text="" position="0.846 15.565 -10.505" rotation="0 -30 0" scale="0.05 0.05 0.05"></a-text>
                 </a-entity> 
 
                 </a-entity>
@@ -181,8 +181,8 @@
           </a-entity>
   
           <a-entity scale="0.05 0.05 0.05" id="stove" stove-listener="" position="-3.357 5.868 1.905">
-            <a-entity obj-model="mtl:assets/03-stove/stove.mtl;obj:assets/03-stove/stove.obj" position="124.194 0 -232.84"></a-entity>
-            <a-entity id="stove_child">
+            <a-entity obj-model="mtl:assets/03-stove/stove.mtl;obj:assets/03-stove/stove.obj" position="124.194 0 -159.665"></a-entity>
+            <a-entity id="stove_child" position="2.95 3.535 66.921">
                   <a-image src="#ui_em" width="100" height="62.5" position="196.738 38.182 -109.553" rotation="0 -60 0" material="opacity:0.8" geometry=""></a-image>
                   <!-- electric consumption -->
                   <a-entity position="-32 6.5 3">
@@ -243,7 +243,7 @@
   
   
           <a-entity>
-              <a-camera userheight="1.6" position="0.077 9.412 7.84" camera="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="" rotation="-6.303 -0.458 0">
+              <a-camera userheight="1.6" position="0.366 8.503 3.296" camera="" look-controls="" wasd-controls="" data-aframe-inspector-original-camera="">
                 <a-cursor id="cursor" cursor="fuse:true;fuseTimeout:500" position="0 0 -1" geometry="radiusOuter:0.03;radiusInner:0.02" material="color:blue" raycaster="">
                 </a-cursor>
               </a-camera>
@@ -254,4 +254,4 @@
       </a-scene>
       
   
-  </body></html>
+  <textarea readonly="" style="font-size: 12pt; border: 0px; padding: 0px; margin: 0px; position: absolute; left: -9999px; top: 0px;"></textarea></body></html>
