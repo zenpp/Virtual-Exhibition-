@@ -6,6 +6,11 @@ AFRAME.registerComponent('solar-listener', {
       var el = document.querySelector("#solar_child");
 
       solar.addEventListener('mouseenter', function (evt) {
+            document.querySelector("#solar_ec_text").setAttribute("value",11)
+            document.querySelector("#solar_v_text").setAttribute("value",220)
+            document.querySelector("#solar_i_text").setAttribute("value",8.6)
+            document.querySelector("#solar_t_text").setAttribute("value",36)
+            document.querySelector("#solar_bat_text").setAttribute("value",77+'%')
             el.setAttribute("visible",true);
       });
       
@@ -15,9 +20,7 @@ AFRAME.registerComponent('solar-listener', {
       });
        
     },
-    update: function (){
-
-    },
+    
 });
 
 AFRAME.registerComponent('bicycle-listener', {
